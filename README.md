@@ -11,4 +11,4 @@ nacos启动命令：startup.cmd -m standalone
 ## 模块说明
 consumer：消费者  
 interface：接口定义  
-provider：接口提供者/实现
+provider：服务提供者(接口实现方)
