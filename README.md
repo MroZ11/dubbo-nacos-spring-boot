@@ -15,3 +15,5 @@ provider：服务提供者(接口实现方)
 
 ## Nacos作为外部配置
 
+![dubbo](https://raw.githubusercontent.com/MroZ11/dubbo-nacos-spring-boot/main/dubboPropertiesInNacos.png)
+![spring](https://raw.githubusercontent.com/MroZ11/dubbo-nacos-spring-boot/main/springPropertiesInNacos.png)
