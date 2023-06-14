@@ -1,0 +1,18 @@
+server:
+  port: 8052
+
+dubbo:
+  application:
+    name: dubbo-nacos-springboot-consumer
+    qos-enable: false
+  protocol:
+    name: dubbo
+    port: -1
+  config-center:
+    address: nacos://localhost:8848
+    group: nacos-proj
+    config-file: dubbo.properties
+  registry:
+    address: nacos://localhost:8848
+    group: nacos-proj
+    parameters.register-consumer-url: true
