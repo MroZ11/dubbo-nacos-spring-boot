@@ -9,6 +9,6 @@ dubbo结合nacos以及springboot的试例项目
 nacos启动命令：startup.cmd -m standalone
 
 ## 模块说明
-consumer：消费者
-interface：接口定义
+consumer：消费者  
+interface：接口定义  
 provider：接口提供者/实现
