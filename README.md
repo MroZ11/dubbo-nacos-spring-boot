@@ -2,7 +2,7 @@
 
 dubbo结合nacos以及springboot的试例项目
 
-环境要求 maven nacos 
+环境要求: jave8 maven nacos 
 
 启动顺序:nacos -> provider -> consumer
 
