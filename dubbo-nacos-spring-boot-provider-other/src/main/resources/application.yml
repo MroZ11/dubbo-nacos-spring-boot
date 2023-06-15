@@ -1,0 +1,17 @@
+server:
+  port: 8050
+
+dubbo:
+  application:
+    name: dubbo-nacos-springboot-provider-other
+    qos-enable: false
+  protocol:
+    name: dubbo
+    port: -1
+  config-center:
+    address: nacos://localhost:8848
+    group: nacos-proj
+  registry:
+    address: nacos://localhost:8848
+    group: nacos-proj
+
