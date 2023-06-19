@@ -10,9 +10,8 @@
     <version>1.0</version>
     <modules>
         <module>dubbo-nacos-spring-boot-interface</module>
-        <module>dubbo-nacos-spring-boot-provider</module>
         <module>dubbo-nacos-spring-boot-consumer</module>
-        <module>provider-other</module>
+        <module>dubbo-nacos-spring-boot-provider</module>
         <module>dubbo-nacos-spring-boot-provider-other</module>
     </modules>
 
