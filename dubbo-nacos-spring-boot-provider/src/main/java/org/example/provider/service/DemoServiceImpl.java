@@ -1,6 +1,7 @@
 package org.example.provider.service;
 
 import org.apache.dubbo.config.annotation.DubboService;
+import org.apache.dubbo.rpc.RpcContext;
 import org.example.api.service.dto.BankInfo;
 import org.example.api.service.DemoService;
 
@@ -12,7 +13,8 @@ public class DemoServiceImpl implements DemoService {
 
     @Override
     public String sayHello(String name) {
-        String out = String.format(" Hello %s ,this service provided by %s,version: %s,group: %s ", name, "dubbo-nacos-spring-boot-provider", "1.0", "dubbo-provider");
+        String sessionId = RpcContext.getServerAttachment().getAttachment("sessionId");
+        String out = String.format(" Hello %s ,this service provided by %s,version: %s,group: %s,sessionId:%s ", name, "dubbo-nacos-spring-boot-provider", "1.0", "dubbo-provider-other",sessionId);
         System.out.println(out);
         return out;
     }
