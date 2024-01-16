@@ -5,6 +5,7 @@ import com.alibaba.nacos.api.config.ConfigService;
 import com.alibaba.nacos.api.exception.NacosException;
 import org.apache.dubbo.config.ReferenceConfig;
 import org.apache.dubbo.config.annotation.DubboReference;
+import org.apache.dubbo.rpc.RpcContext;
 import org.example.api.service.DemoService;
 import org.example.consumer.config.DubboProperties;
 import org.example.consumer.config.SpringProperties;
@@ -19,7 +20,7 @@ public class DemoController {
     /**
      * DubboReference 如果想延迟要指定lazy属性,否则如果服务提供方不在线依赖于该服务的项目也无法启动
      */
-    @DubboReference(version = "1.0", group = "dubbo-provider")
+    @DubboReference(version = "1.0", group = "dubbo-provider",lazy = true)
     private DemoService demoService;
 
     @NacosInjected
@@ -56,7 +57,18 @@ public class DemoController {
         //设置分组
         reference.setGroup("dubbo-provider-other");
         DemoService demoService = reference.get();
-        return demoService.sayHello(name);
+        /*
+        * A------>B------>C
+        * client(A)--->server(B)
+        *             client(B)------>server(C)
+        *
+        * */
+        //通过上下文传递变量 比如分布式的sessionId或token   A->B A端通过getClientAttachment()获取
+        RpcContext.getClientAttachment().setAttachment("sessionId","code-89757");
+        String backStr = demoService.sayHello(name);
+        //通过getClientResponseContext()可以读取回传
+        System.out.println(RpcContext.getClientResponseContext().getAttachment("userName"));
+        return backStr;
     }
 
 
