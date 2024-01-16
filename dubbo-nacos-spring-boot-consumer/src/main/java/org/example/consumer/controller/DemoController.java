@@ -62,6 +62,10 @@ public class DemoController {
         * A------>B------>C
         * client(A)--->server(B)
         *             client(B)------>server(C)
+        *
+        * A<------B
+        * ClientResponseContext(A)<-------ServerContext(B)
+        *
         * */
         //通过上下文传递变量 比如分布式的sessionId或token   A->B A端通过getClientAttachment()获取
         RpcContext.getClientAttachment().setAttachment("sessionId","code-89757");
