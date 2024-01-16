@@ -58,10 +58,10 @@ public class DemoController {
         reference.setGroup("dubbo-provider-other");
         DemoService demoService = reference.get();
         /*
+        * https://dubbo.apache.org/zh-cn/blog/2018/07/12/dubbo-%E4%B8%8A%E4%B8%8B%E6%96%87%E4%BF%A1%E6%81%AF/
         * A------>B------>C
         * client(A)--->server(B)
         *             client(B)------>server(C)
-        *
         * */
         //通过上下文传递变量 比如分布式的sessionId或token   A->B A端通过getClientAttachment()获取
         RpcContext.getClientAttachment().setAttachment("sessionId","code-89757");
